@@ -120,6 +120,18 @@ const solveExhaustiveEnumeration = (teachers, disciplines) => {
             resultP = permutation
         }
     }
+    if (
+        teachers.some((t, tidx) => {
+            let ld = t.load
+            for (let i = 0; i < resultP.length; i++) {
+                if (resultP[i] == tidx) ld -= disciplines[i].load
+            }
+            if (ld > 0 && result == 5)
+                console.log(disciplines, ld, result, resultP, tidx)
+            return ld > 0
+        })
+    )
+        return [null, new Array(disciplines.length).fill('-')]
     return [result, resultP]
 }
 

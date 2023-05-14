@@ -7,7 +7,7 @@ const {
 } = require('./common')
 
 const fs = require('fs')
-const n = 6,
+const n = 8,
     m = n
 if (!fs.existsSync('data${n}.csv'))
     fs.appendFile(
@@ -35,6 +35,7 @@ for (let i = 0; i < 1000; i++) {
     const [t2, [result2, p2]] = measureTime(
         solveExhaustiveEnumeration.bind(null, teachers, disciplines)
     )
+
     console.info(result1, result2, result2 - result1)
 
     if (result1 > result2)
